@@ -1,9 +1,9 @@
-.card-banknote-item {
-    background-color: #ffffff;
+.banknote-city-item {
+    background-color: #18181B;
     position: relative;
     overflow: hidden;
     width: calc(25% - 20px);
-    height: 200px;
+    height: 250px;
     margin: 10px;
     border-radius: 20px;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -26,9 +26,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.66);
-    background: #148f2b;
-    border-radius: 5px 5px 20px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.66);
+    background: #dc3545;
+    border-radius: 15px 15px 20px 20px;
     text-align: center;
     color: #ffffff;
     font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
@@ -38,23 +38,12 @@
     text-overflow: ellipsis;
 }
 
-.nominal-text {
-    padding-top: 5px;
-}
-
-.currency-text {
-    font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
-    font-size: 20px;
-    margin-left: 2px;
-    padding-top: 10px;
-}
-
-.card-banknote-item:hover {
+.banknote-city-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 14px rgb(53, 220, 111);
+    box-shadow: 0 0 14px rgb(220, 53, 69);
 }
 
-.card-banknote-item:hover .photo {
+.banknote-city-item:hover .photo {
     filter: brightness(0.7);
 }
 
@@ -68,11 +57,11 @@
     transition: opacity 0.3s ease;
 }
 
-.card-banknote-item:hover .deleted-trash {
+.banknote-city-item:hover .deleted-trash {
     opacity: 1;
 }
 
-.card-banknote-item:hover .circle {
+.banknote-city-item:hover .circle {
     opacity: 1;
 }
 
@@ -87,10 +76,10 @@
     opacity: 0;
     transition: opacity 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
-    color: #26BEEFCC;
+    color: #dc3545;
 }
 
 .circle:hover {
     opacity: 1;
-    background-color: #58d4ff;
+    background-color: rgba(220, 53, 69, 0.25);
 }

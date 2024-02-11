@@ -1,4 +1,4 @@
-.company-card-body {
+.banknote-card-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,3 +47,6 @@ h3 {
     border-radius: 4px;
     cursor: pointer;
 }
+
+
+/* Добавим стили для кнопки "Назад" */
