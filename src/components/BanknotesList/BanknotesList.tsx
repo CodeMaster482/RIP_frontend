@@ -46,7 +46,7 @@ const BanknotesList: FC<BanknoteListProps> = ({setPage, searchValue, resetSearch
     }, [reloadPage]);
 
     const fetchBanknotes = async () => {
-        const url = 'http://127.0.0.1:8080/api/banknotes' + `?company_name=${searchValue ?? ''}`;
+        const url = 'http://127.0.0.1:8080/api/banknotes' + `?banknote=${searchValue ?? ''}`;
 
         const response = await fetch(url, {
             method: "GET",
