@@ -74,7 +74,7 @@ const BanknotesList: FC<BanknoteListProps> = ({setPage, draftID, setDraftID}) =>
                         aria-label="Search"
                         onChange={(e) => dispatch(searchSlice.actions.setType(e.target.value))}
                     />
-                    <Button type="submit" className="ms-2 btn btn-danger">
+                    <Button type="submit" className="ms-2 btn btn-success">
                         Поиск
                     </Button>
                 </div>

@@ -1,3 +1,6 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
+
 import BanknoteTableCell from './BanknoteTableCell.tsx';
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {FC, useEffect} from "react";
@@ -28,9 +31,14 @@ const BanknoteTable: FC<BanknoteTableProps> = ({setPage}) => {
 
             <Nav className="ms-2">
                 <Nav.Item>
-                    <Link to="/add-banknote-2" className="btn btn-outline-danger mt-2"
-                          style={{marginLeft: '80px', marginBottom: '30px'}}>
+                    <Link to="/add-banknote-2" className="btn btn-outline-success mt-2 linkContainer"
+                          style={{marginLeft: '80px', marginBottom: '30px', display:'flex'}}>
                         Добавить купюру
+                        <FontAwesomeIcon
+                            icon={faPlus}
+                            className="me-2 addSvgIco"
+                            style={{ fontSize: '1em', color: '#198754', marginTop:'0.25em', marginLeft:'0.5em', marginRight:'0px' }}
+                        />
                     </Link>
                 </Nav.Item>
             </Nav>

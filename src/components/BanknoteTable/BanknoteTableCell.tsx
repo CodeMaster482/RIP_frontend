@@ -78,7 +78,7 @@ const BanknoteTableCell: FC<BanknoteTableCellProps> = ({banknoteData}) => {
                         />
                     </Form.Group>
                     <Form.Group as={Col} controlId="formBanknoteCurrency" className='mt-2'>
-                        <Form.Label>ИИН</Form.Label>
+                        <Form.Label>Валюта</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Введите валюту"
@@ -105,7 +105,7 @@ const BanknoteTableCell: FC<BanknoteTableCellProps> = ({banknoteData}) => {
                         <Form.Control
                             as="textarea"
                             rows={3}
-                            placeholder="Введите описание компании"
+                            placeholder="Введите описание купюры"
                             name="description"
                             value={description}
                             onChange={handleInputChangeDescription}
@@ -122,11 +122,11 @@ const BanknoteTableCell: FC<BanknoteTableCellProps> = ({banknoteData}) => {
                     </Form.Group>
 
                     <div style={{display: 'flex', justifyContent: 'space-between'}} className='my-3'>
-                        <Button variant="btn btn-danger" onClick={handleSaveClick}>
+                        <Button variant="btn btn-success" onClick={handleSaveClick}>
                             Сохранить изменения
                         </Button>
 
-                        <Button variant='outline-light' onClick={() => {
+                        <Button variant='btn btn-light' style={{border: 'solid 1px #999999'}} onClick={() => {
                             setIsEditing(false)
                         }}>
                             Отменить редактирование
@@ -151,11 +151,11 @@ const BanknoteTableCell: FC<BanknoteTableCellProps> = ({banknoteData}) => {
                          style={{width: '200px'}}/>
                 }</td>
                 <div className='my-3' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Button variant="btn btn-danger" onClick={handleEditClick} className='mb-2'>
+                    <Button variant="btn btn-success" onClick={handleEditClick} style={{width: '10em'}} className='mb-2'>
                         Редактировать
                     </Button>
 
-                    <Button variant="outline-danger" onClick={handleDeleteClick} style={{width: '100%'}}>
+                    <Button variant="outline-success" onClick={handleDeleteClick} style={{width: '10em'}}>
                         Удалить
                     </Button>
                 </div>

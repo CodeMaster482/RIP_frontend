@@ -31,7 +31,7 @@
     bottom: -4px;
     height: 2px;
     width: 100%;
-    background-color: #DB0000;
+    background-color: #21BA72;
     transition: opacity 300ms ease;
 }
 
@@ -71,7 +71,7 @@
     /*bottom: -17%;*/
     height: 2px;
     width: 100%;
-    background-color: #DB0000;
+    background-color: #21BA72;
     transition: opacity 300ms ease;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .logout-link:hover .logout-icon {
-    color: #DB0000;
+    color: #21BA72;
 }
 
 .logout-link:hover .logout-text::after {

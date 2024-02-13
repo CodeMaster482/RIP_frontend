@@ -53,7 +53,7 @@ const LoginPage: FC<LoginPageProps> = () => {
                                 required
                             />
 
-                            <Button variant="danger" type="submit" className="w-100 mt-4" onClick={handleSubmit}
+                            <Button variant="success" type="submit" className="w-100 mt-4" onClick={handleSubmit}
                                     style={{borderRadius: '10px'}}>
                                 Войти
                             </Button>

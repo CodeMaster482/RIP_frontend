@@ -72,9 +72,9 @@ const OperationCard: FC<OperationCardProps> = ({setPage}) => {
 
                             </div>
                             <div className="detail-info">
-                                {singleOperation.status !="черновик" && <label>Сформирована: {DateFormat(singleOperation.formation_date)}</label>}
+                                {singleOperation.status !="черновик" && <label>Сформирована: {DateFormat(singleOperation.formation_at)}</label>}
                                 <label htmlFor="operationNameInput" style={{ color: 'black' }}>
-                                    <h4 style={{textAlign: 'left'}}>Название тендера:</h4>
+                                    <h4 style={{textAlign: 'left'}}>Название операции:</h4>
                                 </label>
                                 <input
                                     type="text"
@@ -90,7 +90,7 @@ const OperationCard: FC<OperationCardProps> = ({setPage}) => {
                             <div style={{textAlign: 'right'}}>
                                 {singleOperation.status == 'черновик' && <button
                                     type="button"
-                                    className="btn btn-outline-danger"
+                                    className="btn btn-outline-success"
                                     onClick={() => handleSave(singleOperation.id, singleOperation)}
                                     style={{width: '150px', marginTop: '15px'}}
                                 >
@@ -104,7 +104,7 @@ const OperationCard: FC<OperationCardProps> = ({setPage}) => {
                         <TableView
                             setPage={setPage}
                             operationID={operation_id ?? ''}
-                            banknoteOperation={singleOperation.banknote_operation}
+                            banknoteOperation={singleOperation.operation_banknote}
                             status={singleOperation.status}
                         />
 
@@ -115,10 +115,10 @@ const OperationCard: FC<OperationCardProps> = ({setPage}) => {
                                 <div style={{flex: 1}}>
                                     <button
                                         type="button"
-                                        className="btn btn-outline-danger"
+                                        className="btn btn-outline-success"
                                         onClick={() => handleDeleteOperation(singleOperation.id)}
                                     >
-                                        Удалить
+                                        Очистить
                                     </button>
                                 </div>
                             )}
@@ -127,7 +127,7 @@ const OperationCard: FC<OperationCardProps> = ({setPage}) => {
                                 <div style={{flex: 1}}>
                                     <button
                                         type="button"
-                                        className="btn btn-danger"
+                                        className="btn btn-success"
                                         onClick={() => handleMakeRequest(singleOperation.id)}
                                     >
                                         Сформировать

@@ -37,7 +37,7 @@ const BanknoteDetail: FC<BanknoteDetailProps> = ({setPage}) => {
                         alt={banknote?.nominal.toString()}
                     />
                     <h3>{banknote?.nominal}</h3>
-                    <h6>ИИН: {banknote?.currency}</h6>
+                    <h6>Валюта: {banknote?.currency}</h6>
                     <h6>Статус: {banknote?.status}</h6>
                     <p>{banknote?.description}</p>
                     {/*{role == '2' &&*/}
@@ -49,7 +49,7 @@ const BanknoteDetail: FC<BanknoteDetailProps> = ({setPage}) => {
                     {/*/>*/}
                     {/*}*/}
                     <div className="buttons">
-                        <button className="btn btn-danger" onClick={BackHandler}>Назад</button>
+                        <button className="btn btn-success" onClick={BackHandler}>Назад</button>
                         {/*<button className="primary ghost">Записаться</button>*/}
                     </div>
                 </div>

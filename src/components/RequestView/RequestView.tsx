@@ -85,8 +85,8 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
         if (role == '2') {
             dispatch(fetchOperationsFilter(formattedStartDate, formattedEndDate, `${selectedStatus}`));
         } else {
-            dispatch(fetchOperations)
-            localFilter(formattedStartDate, formattedEndDate)
+            dispatch(fetchOperations());
+            localFilter(formattedStartDate, formattedEndDate);
         }
     };
 
@@ -110,7 +110,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
         }
 
         if (operation) {
-            const d = operation.operations.filter(obj => isDateInRange(obj.creation_date))
+            const d = operation.operations.filter(obj => isDateInRange(obj.created_at))
             setFilteredOperations(d)
         }
     }
@@ -158,7 +158,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
 
             {/* =================================== CHECK JWT TOKEN =====================================*/}
             {!isAuth ? (
-                <Link to="/login" className="btn btn-outline-danger">
+                <Link to="/login" className="btn btn-outline-success">
                     Требуется войти в систему
                 </Link>
             ) : (
@@ -231,7 +231,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                                     }
 
                                     <Button
-                                        className='btn btn-danger mb-2'
+                                        className='btn btn-success mb-2'
                                         style={{width: '100%', height: '40px' }}
                                         onClick={handleFilter}
                                     >
@@ -239,7 +239,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                                     </Button>
 
                                     <Button
-                                        className='btn btn-danger mb-2'
+                                        className='btn btn-success mb-2'
                                         style={{width: '100%', height: '40px' }}
                                         onClick={resetFilter}
                                     >
@@ -257,7 +257,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                             <thead>
                             <tr>
                                 {/*<th>ID</th>*/}
-                                <th>Название тендера</th>
+                                <th>Название операции</th>
                                 <th>Статус рассмотрения</th>
                                 <th>Дата создания</th>
                                 <th>Дата начала процесса</th>
@@ -267,6 +267,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                                     <th>Модератор</th>
                                 }
                                 <th>Статус</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -276,9 +277,9 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                                         onClick={(event) => clickCell(operation.id, event)}>                                {/*<td>{operation.id}</td>*/}
                                         <td>{operation.operation_name || 'Не задано'}</td>
                                         <td>{operation.status_check || 'Не рассмотрен'}</td>
-                                        <td>{checkData(operation.creation_date)}</td>
-                                        <td>{checkData(operation.formation_date)}</td>
-                                        <td>{checkData(operation.completion_date)}</td>
+                                        <td>{checkData(operation.created_at)}</td>
+                                        <td>{checkData(operation.formation_at)}</td>
+                                        <td>{checkData(operation.completion_at)}</td>
                                         <td>{operation.user_login || 'Не задан'}</td>
                                         <td>{operation.status}</td>
                                     </tr>
@@ -288,9 +289,9 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                                         {/*<td>{operation.id}</td>*/}
                                         <td>{operation.operation_name || 'Не задано'}</td>
                                         <td>{operation.status_check || 'Не рассмотрен'}</td>
-                                        <td>{checkData(operation.creation_date)}</td>
-                                        <td>{checkData(operation.formation_date)}</td>
-                                        <td>{checkData(operation.completion_date)}</td>
+                                        <td>{checkData(operation.created_at)}</td>
+                                        <td>{checkData(operation.formation_at)}</td>
+                                        <td>{checkData(operation.completion_at)}</td>
                                         <td>{operation.user_login || 'Не задан'}</td>
                                         {role == '2' &&
                                             <td>{operation.moderator_login || 'Не задан'}</td>
@@ -305,13 +306,14 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
                                                          flexDirection: 'column',
                                                          alignItems: 'center'
                                                      }}>
-                                                    <Button variant="btn btn-danger"
+                                                    <Button variant="btn btn-success"
                                                             onClick={() => handlerApprove(operation.id)}
-                                                            className='mb-2'>
+                                                            className='mb-2'
+                                                            style={{width: '100%'}}>
                                                         Завершить
                                                     </Button>
 
-                                                    <Button variant="outline-danger"
+                                                    <Button variant="outline-success"
                                                             onClick={() => handleDiscard(operation.id)}
                                                             style={{width: '100%'}}>
                                                         Отказать

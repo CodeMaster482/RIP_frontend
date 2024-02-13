@@ -335,6 +335,7 @@ export const fetchOperationById = (
                 Authorization: `Bearer ${accessToken}`
             }
         });
+        console.log(response.data)
         setPage(response.data.operation.operation_name, response.data.operation.id)
         dispatch(operationSlice.actions.operationFetched(response.data.operation))
     } catch (e) {
@@ -343,6 +344,7 @@ export const fetchOperationById = (
 }
 
 export const fetchOperations = () => async (dispatch: AppDispatch) => {
+    console.log("I am here 2")
     const accessToken = Cookies.get('jwtToken');
     dispatch(userSlice.actions.setAuthStatus(accessToken != null && accessToken != ""));
     try {
@@ -509,14 +511,14 @@ export const moderatorUpdateStatus = (operationId: number, status: string) => as
 // ------------------ Add Banknote ----------------
 
 export const createBanknote = (
-    banknoteName?: string,
+    banknoteNominal?: string,
     description?: string,
     currency?: string,
     image?: File | null
 ) => async (dispatch: AppDispatch) => {
     const formData = new FormData();
-    if (banknoteName) {
-        formData.append('banknote_name', banknoteName);
+    if (banknoteNominal) {
+        formData.append('nominal', banknoteNominal);
     }
     if (description) {
         formData.append('description', description);
@@ -544,7 +546,8 @@ export const createBanknote = (
         dispatch(banknoteSlice.actions.banknotesFetching())
         const response = await axios(config);
         const errorText = response.data.description || ''
-        const successText = errorText == '' ? "Компания создан" : ''
+        const successText = errorText == '' ? "Купюра создан" : ''
+        
         dispatch(banknoteSlice.actions.banknoteAddedIntoOperation([errorText, successText]))
         setTimeout(() => {
             dispatch(banknoteSlice.actions.banknoteAddedIntoOperation(['', '']));
@@ -589,7 +592,7 @@ export const updateOperationBanknote = (
     const accessToken = Cookies.get('jwtToken');
     const config = {
         method: "put",
-        url: "/api/tender-request-company",
+        url: "/api/operation-request-banknote",
         headers: {
             Authorization: `Bearer ${accessToken}`,
             ContentType: "application/json"

@@ -6,7 +6,7 @@ import MyComponent from "../Popup/Popover.tsx";
 import Cookies from "js-cookie";
 
 interface BanknoteData {
-    banknoteName: string;
+    banknoteNominal: string;
     description: string;
     image: File | null;
     currency: string
@@ -18,7 +18,7 @@ interface AddBanknoteProps {
 
 const CreateBanknotePage: FC<AddBanknoteProps> = ({setPage}) => {
     const [banknoteData, setBanknoteData] = useState<BanknoteData>({
-        banknoteName: '',
+        banknoteNominal: '',
         description: '',
         image: null,
         currency: '',
@@ -36,7 +36,7 @@ const CreateBanknotePage: FC<AddBanknoteProps> = ({setPage}) => {
     }, []);
 
     const save = () => {
-        dispatch(createBanknote(banknoteData.banknoteName, banknoteData.description, banknoteData.currency, banknoteData.image))
+        dispatch(createBanknote(banknoteData.banknoteNominal, banknoteData.description, banknoteData.currency, banknoteData.image))
     }
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,25 +63,25 @@ const CreateBanknotePage: FC<AddBanknoteProps> = ({setPage}) => {
             <Container>
                 <Row className="justify-content-md-center">
                     <Col xs={12} md={6}>
-                        <h2 style={{ color: 'black' }}>Добавление компании</h2>                        <Form
+                        <h2 style={{ color: 'black' }}>Добавление Купюры</h2>                        <Form
                         onSubmit={handleSubmit}>
-                            <Form.Group controlId="formCompanyName">
-                                <Form.Label style={{ color: 'black' }}>Название компании</Form.Label>
+                            <Form.Group controlId="formBanknoteNominal">
+                                <Form.Label style={{ color: 'black' }}>Номинал купюры</Form.Label>
                                 <Form.Control
-                                    type="text"
-                                    placeholder="Название"
-                                    name="companyName"
-                                    value={banknoteData.banknoteName}
+                                    type="intager"
+                                    placeholder="Номинал"
+                                    name="banknoteNominal"
+                                    value={banknoteData.banknoteNominal}
                                     onChange={handleInputChange}
                                     required
                                 />
                             </Form.Group>
-                            <Form.Group controlId="formCompanyIIN">
-                                <Form.Label style={{ color: 'black' }}>ИИН</Form.Label>
+                            <Form.Group controlId="formBanknoteCurrency">
+                                <Form.Label style={{ color: 'black' }}>Валюта</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder="Название"
-                                    name="iin"
+                                    placeholder="Код валюты"
+                                    name="currency"
                                     value={banknoteData.currency}
                                     onChange={handleInputChange}
                                     required
@@ -89,7 +89,7 @@ const CreateBanknotePage: FC<AddBanknoteProps> = ({setPage}) => {
                                 />
                             </Form.Group>
                             <Form.Group controlId="formCityDescription">
-                                <Form.Label style={{ color: 'black' }}>Описание компании</Form.Label>
+                                <Form.Label style={{ color: 'black' }}>Описание купюры</Form.Label>
                                 <Form.Control
                                     as="textarea"
                                     rows={3}
@@ -101,8 +101,8 @@ const CreateBanknotePage: FC<AddBanknoteProps> = ({setPage}) => {
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="formCompanyImage">
-                                <Form.Label style={{ color: 'black' }}>Логотип компании</Form.Label>
+                            <Form.Group controlId="formbanknoteImage">
+                                <Form.Label style={{ color: 'black' }}>Фото купюры</Form.Label>
                                 <Form.Control
                                     type="file"
                                     accept="image/*"
@@ -110,7 +110,7 @@ const CreateBanknotePage: FC<AddBanknoteProps> = ({setPage}) => {
                                 />
                             </Form.Group>
 
-                            <Button variant="danger" type="submit" style={{marginTop: '30px'}} onClick={save}>
+                            <Button variant="btn btn-success" type="submit" style={{marginTop: '30px', width:'100%'}} onClick={save}>
                                 Создать
                             </Button>
                         </Form>

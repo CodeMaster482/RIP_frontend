@@ -30,6 +30,7 @@ const TableView: FC<TableViewProps> = ({banknoteOperation, status, setPage, oper
     const handleCashChangePlus = (id: number, quantity: number) => {
         quantity += 1
         //dispatch(increase())
+        console.log("id", id, "quantity", quantity)
         dispatch(updateOperationBanknote(id, quantity, operationID, setPage))
     }
 
@@ -44,9 +45,9 @@ const TableView: FC<TableViewProps> = ({banknoteOperation, status, setPage, oper
             <table>
                 <thead>
                 <tr>
-                    <th className="number">Цена</th>
-                    <th>Логотип компании</th>
-                    <th>Название Компании</th>
+                    <th className="number">Кол-во</th>
+                    <th>Купюра</th>
+                    <th>Номинал</th>
                     <th>Описание</th>
                     <th></th>
                 </tr>
@@ -68,12 +69,12 @@ const TableView: FC<TableViewProps> = ({banknoteOperation, status, setPage, oper
                                     </button>
                                 </>
                             )}
-                            {status != "черновик" && <span>{item.quantity} руб.</span>}
+                            {status != "черновик" && <span>{item.quantity} кол-во.</span>}
                         </td>
                         <td className="image-td">
                             <img src={item.banknote.image_url} alt="photo" />
                         </td>
-                        <td className="city-name-td">{item.banknote.nominal}</td>
+                        <td className="city-name-td">{`${item.banknote.nominal} ${item.banknote.currency}`}</td>
                         <td>{item.banknote.description}</td>
                         {status === "черновик" && (
                             <td className="delete-td">
@@ -93,5 +94,7 @@ const TableView: FC<TableViewProps> = ({banknoteOperation, status, setPage, oper
         </>
     );
 };
+
+// {item.banknote.nominal}
 
 export default TableView;

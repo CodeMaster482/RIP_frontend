@@ -30,15 +30,15 @@ const RegisterPage: FC<RegisterPageProps> = () => {
     };
 
     if (success != '') {
-        return <Link to="/login" className="btn btn-outline-danger">
+        return <Link to="/login" className="btn btn-outline-success">
             Войдите в систему
         </Link>
     }
 
 
     if (isAuth) {
-        return <Link to="/companies" className="btn btn-outline-danger">
-            Смотреть компании
+        return <Link to="/banknotes" className="btn btn-outline-success">
+            Смотреть купюры
         </Link>
     }
 
@@ -82,7 +82,7 @@ const RegisterPage: FC<RegisterPageProps> = () => {
                             />
 
                             <Button
-                                variant="danger"
+                                variant="success"
                                 type="submit"
                                 className="w-100 mt-4"
                                 onClick={handleRegister}

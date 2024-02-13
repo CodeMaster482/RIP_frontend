@@ -62,9 +62,9 @@ export interface IUser {
 export interface IOpearation {
     id: number,
     operation_name: string,
-    creation_date: string,
-    completion_date: string,
-    formation_date: string,
+    created_at: string,
+    completion_at: string,
+    formation_at: string,
     //user_id: number,
     status: string,
     status_check: string,
@@ -75,7 +75,7 @@ export interface IOpearation {
     //creator_login: string,
     //user: IUser,
     //moderator: IUser
-    banknote_operation: IBanknoteOperations[],
+    operation_banknote: IBanknoteOperations[],
 }
 
 export interface IRequest {
