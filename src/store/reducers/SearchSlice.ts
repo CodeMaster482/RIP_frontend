@@ -10,7 +10,6 @@ interface searchState {
 
 const initialState: searchState = {
     type: '',
-
     user: '',
     selectedStatus: '',
     startDate: null,

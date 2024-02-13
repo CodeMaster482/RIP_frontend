@@ -133,6 +133,7 @@ const RequestView: FC<RequestViewProps> = ({setPage}) => {
     }
 
     const handleInputChange = () => {
+        console.log(operation)
         if (operation) {
             const d = operation.operations.filter(obj => obj.user_login === textValue)
             setFilteredUsers(d.length == 0 ? null : d)
