@@ -29,7 +29,7 @@ export const banknoteSlice = createSlice({
             state.quantity += 1
         },
         minus(state) {
-            state.quantity = state.quantity == 0 ? 0 :  state.quantity - 1000
+            state.quantity = state.quantity == 0 ? 0 :  state.quantity - 1
         },
         reset(state) {
             state.quantity = 0
