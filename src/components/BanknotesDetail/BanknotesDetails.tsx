@@ -65,7 +65,7 @@ const BanknotesDetail: FC<BanknoteDetailProps> = ({setPage}) => {
                     <h6>Статус: {banknote?.status}</h6>
                     <p>{banknote?.description}</p>
                     <div className="buttons">
-                        <button className="btn btn-danger" onClick={BackHandler}>Назад</button>
+                        <button className="btn btn-success" onClick={BackHandler}>Назад</button>
                     </div>
                 </div>
             </div>
