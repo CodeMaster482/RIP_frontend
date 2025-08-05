@@ -1,0 +1,96 @@
+.card-banknote-item {
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    width: calc(25% - 20px);
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-card {
+    width: 100%;
+    height: 18%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.66);
+    background: #148f2b;
+    border-radius: 5px 5px 20px 20px;
+    text-align: center;
+    color: #ffffff;
+    font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
+    font-size: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nominal-text {
+    padding-top: 5px;
+}
+
+.currency-text {
+    font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
+    font-size: 20px;
+    margin-left: 2px;
+    padding-top: 10px;
+}
+
+.card-banknote-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px rgb(53, 220, 111);
+}
+
+.card-banknote-item:hover .photo {
+    filter: brightness(0.7);
+}
+
+.deleted-trash {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-banknote-item:hover .deleted-trash {
+    opacity: 1;
+}
+
+.card-banknote-item:hover .circle {
+    opacity: 1;
+}
+
+.circle {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    color: #26BEEFCC;
+}
+
+.circle:hover {
+    opacity: 1;
+    background-color: #58d4ff;
+}
